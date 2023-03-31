@@ -116,6 +116,10 @@ int sys_ps(void)
   return proc_ps(numberOfProcs, procInfoArray);
 }
 
+/// @brief Connects the kernel to a defined implementation of "nice."
+/// @param pid The process id.
+/// @param priority The new priority level (higher number = higher priority).
+/// @return The old priority level.
 int sys_nice(void)
 {
   int pid;

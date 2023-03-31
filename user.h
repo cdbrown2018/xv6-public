@@ -36,6 +36,10 @@ int shutdown(void);
 /// by the kernel. This number may be less than count, and if it is, elements
 /// at indexes >= count may contain uninitialized memory.
 int ps(int count, struct procInfo *procInfoArray);
+/// @brief Sets the priority of a process.
+/// @param pid The pid of the process to update.
+/// @param priority The new priority level (higher number = higher priority).
+/// @return The old priority.
 int nice(int pid, int priority);
 
 // ulib.c

@@ -66,9 +66,14 @@ int proc_ps(int numberOfProcs, struct procInfo *arrayOfProcInfo)
   return procInfoArrayIndex;
 }
 
+/// @brief Updates the process with the specified process id with a new priority.
+/// @param pid The pid of the process.
+/// @param priority The processing priority (higher numbers = higher priority).
+/// @return The old priority.
 int proc_nice(int pid, int priority)
 {
   struct proc *p;
+  int oldPriority = -1;
 
   acquire(&ptable.lock);
 
@@ -76,12 +81,13 @@ int proc_nice(int pid, int priority)
   {
     if (p->pid == pid)
     {
+      oldPriority = p->priority;
       p->priority = priority;
     }
   }
 
   release(&ptable.lock);
-  return priority;
+  return oldPriority;
 }
 
 void pinit(void)
