@@ -19,28 +19,33 @@ int main(void)
   dup(0); // stdout
   dup(0); // stderr
 
-  if (open("hello", O_RDWR) < 0)
+  if (open("dev", O_RDWR) < 0)
   {
-    mknod("hello", 7, 1);
-    open("hello", O_RDWR);
+    mkdir("dev");
   }
 
-  if (open("zero", O_RDWR) < 0)
+  if (open("/dev/hello", O_RDWR) < 0)
   {
-    mknod("zero", 2, 1);
-    open("zero", O_RDWR);
+    mknod("/dev/hello", 7, 1);
+    open("/dev/hello", O_RDWR);
   }
 
-  if (open("dnull", O_RDWR) < 0)
+  if (open("/dev/zero", O_RDWR) < 0)
   {
-    mknod("dnull", 4, 1);
-    open("dnull", O_RDWR);
+    mknod("/dev/zero", 2, 1);
+    open("/dev/zero", O_RDWR);
   }
 
-  if (open("ticks", O_RDWR) < 0)
+  if (open("/dev/dnull", O_RDWR) < 0)
   {
-    mknod("ticks", 3, 1);
-    open("ticks", O_RDWR);
+    mknod("/dev/dnull", 4, 1);
+    open("/dev/dnull", O_RDWR);
+  }
+
+  if (open("/dev/ticks", O_RDWR) < 0)
+  {
+    mknod("/dev/ticks", 3, 1);
+    open("/dev/ticks", O_RDWR);
   }
 
   for (;;)

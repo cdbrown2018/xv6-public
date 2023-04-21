@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    int devTicksFd = open("ticks", O_RDONLY);
+    int devTicksFd = open("/dev/ticks", O_RDONLY);
     if (0 > devTicksFd)
     {
         printf(2, "Error: Unable to open dticks\n");

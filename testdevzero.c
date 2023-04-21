@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    int devZeroFd = open("zero", O_RDONLY);
+    int devZeroFd = open("/dev/zero", O_RDONLY);
     if (0 > devZeroFd)
     {
         printf(2, "Error: Unable to open dzero\n");

@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    int devHelloFd = open("hello", O_RDONLY);
+    int devHelloFd = open("/dev/hello", O_RDONLY);
     if (0 > devHelloFd)
     {
         printf(2, "Error: Unable to open dhello\n");

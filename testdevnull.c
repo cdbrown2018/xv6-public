@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    int dNullFd = open("dnull", O_WRONLY);
+    int dNullFd = open("/dev/dnull", O_WRONLY);
 
     char buffer[10];
     snprintf(buffer, dNullFd, "%d");
