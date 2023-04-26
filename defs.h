@@ -25,7 +25,7 @@ void panic(char *) __attribute__((noreturn));
 
 void helloinit(void);
 void zeroinit(void);
-void dnullinit(void);
+void nullinit(void);
 void ticksinit(void);
 
 // exec.c

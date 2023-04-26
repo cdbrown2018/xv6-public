@@ -36,10 +36,10 @@ int main(void)
     open("/dev/zero", O_RDWR);
   }
 
-  if (open("/dev/dnull", O_RDWR) < 0)
+  if (open("/dev/null", O_RDWR) < 0)
   {
-    mknod("/dev/dnull", 4, 1);
-    open("/dev/dnull", O_RDWR);
+    mknod("/dev/null", 4, 1);
+    open("/dev/null", O_RDWR);
   }
 
   if (open("/dev/ticks", O_RDWR) < 0)

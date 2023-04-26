@@ -33,7 +33,7 @@ int main(void)
 
   helloinit();
   zeroinit();
-  dnullinit();
+  nullinit();
   ticksinit();
 
   startothers();                              // start other processors

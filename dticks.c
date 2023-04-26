@@ -72,16 +72,6 @@ char *citoa(int num, char *str, int base)
     return str;
 }
 
-int uptime()
-{
-    uint xticks;
-
-    acquire(&tickslock);
-    xticks = ticks;
-    release(&tickslock);
-    return xticks;
-}
-
 // Copy into outbuffer at most n characters of string.
 static int
 s_cnputs(char *outbuffer, int n, const char *string)
@@ -101,7 +91,6 @@ s_cnputs(char *outbuffer, int n, const char *string)
 
 int ticksread(struct inode *ip, char *dst, int n)
 {
-    int ticks = uptime();
     char buffer[256];
     citoa(ticks, buffer, 10);
     return s_cnputs(dst, n, buffer);

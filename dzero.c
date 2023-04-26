@@ -35,7 +35,13 @@ int zeroread(struct inode *ip, char *dst, int n)
     return s_cnputs(dst, n, "0");
 }
 
+int zerowrite(struct inode *ip, char *src, int n)
+{
+    return n;
+}
+
 void zeroinit(void)
 {
     devsw[ZERO].read = zeroread;
+    devsw[ZERO].write = zerowrite;
 }

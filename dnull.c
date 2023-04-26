@@ -13,12 +13,18 @@
 // #include "proc.h"
 // #include "x86.h"
 
-int dnullwrite(struct inode *ip, char *buf, int n)
+int nullread(struct inode *ip, char *dst, int n)
 {
     return 0;
 }
 
-void dnullinit(void)
+int nullwrite(struct inode *ip, char *buf, int n)
 {
-    devsw[DNULL].write = dnullwrite;
+    return n;
+}
+
+void nullinit(void)
+{
+    devsw[DNULL].read = nullread;
+    devsw[DNULL].write = nullwrite;
 }
